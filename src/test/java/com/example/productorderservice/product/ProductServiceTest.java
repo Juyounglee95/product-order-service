@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductServiceTest {
+public class ProductServiceTest {
     @Autowired
     private ProductService productService;
 
@@ -22,6 +22,4 @@ class ProductServiceTest {
         return new AddProductRequest(name, price, discountPolicy);
 
     }
-
-
 }
