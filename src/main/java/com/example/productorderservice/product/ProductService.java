@@ -22,7 +22,7 @@ class ProductService {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/{productID}")
+    @GetMapping("/{productId}")
     public ResponseEntity<GetProductResponse> getProduct(@PathVariable final Long productId) {
         Product product = productPort.getProduct(productId);
 
