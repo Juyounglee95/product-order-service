@@ -1,11 +1,24 @@
-package com.example.productorderservice.payment;
+package com.example.productorderservice.payment.domain;
 
-import com.example.productorderservice.order.Order;
+import com.example.productorderservice.order.domain.Order;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "payments")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public
 class Payment {
+    @OneToOne
     private Order order;
     private String cardNumber;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Payment(final Order order, final String cardNumber) {
@@ -13,14 +26,6 @@ class Payment {
         Assert.hasText(cardNumber, "카드번호는 필수입니다.");
         this.order = order;
         this.cardNumber = cardNumber;
-    }
-
-    public void assignId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public int getPrice() {
