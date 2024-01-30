@@ -1,10 +1,11 @@
 package com.example.productorderservice.order.adapter;
 
+import org.springframework.stereotype.Component;
+
 import com.example.productorderservice.order.application.port.OrderPort;
 import com.example.productorderservice.order.domain.Order;
-import com.example.productorderservice.product.domain.Product;
 import com.example.productorderservice.product.adapter.ProductRepository;
-import org.springframework.stereotype.Component;
+import com.example.productorderservice.product.domain.Product;
 
 @Component
 class OrderAdapter implements OrderPort {
@@ -12,7 +13,7 @@ class OrderAdapter implements OrderPort {
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
 
-    private OrderAdapter(ProductRepository productRepository, OrderRepository orderRepository) {
+     OrderAdapter(ProductRepository productRepository, OrderRepository orderRepository) {
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
     }
